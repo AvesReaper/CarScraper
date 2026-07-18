@@ -1,0 +1,29 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environment
+.venv/
+venv/
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+
+
+# Logs
+logs/
+*.log
+
+# Local data
+data/
+
+# Documentation
+README.md
+
+# macOS
+.DS_Store

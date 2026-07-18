@@ -46,3 +46,10 @@ PHASE 2:
     sudo systemctl start postgresql
     sudo pacman -S dbeaver // OPTIONAL
 - DB libs were added to requirements.txt
+PHASE 3:
+- installing Docker
+    sudo pacman -S docker
+    docker --version
+    docker compose --version
+    docker run hello-world
+    

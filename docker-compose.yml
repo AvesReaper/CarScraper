@@ -1,0 +1,33 @@
+services:
+  postgres:
+    image: postgres:16
+
+    container_name: car_postgres
+
+    environment:
+      POSTGRES_USER: caruser
+      POSTGRES_PASSWORD: carpassword
+      POSTGRES_DB: cardb
+
+    ports:
+      - "5431:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  api:
+    build: .
+    image: carapi:v1
+    container_name: car_api
+
+    depends_on:
+      - postgres
+
+    ports:
+      - "8000:8000"
+
+    environment:
+      DATABASE_URL: postgresql+psycopg://caruser:carpassword@postgres:5432/cardb
+
+volumes:
+  postgres_data:

@@ -1,11 +1,20 @@
 from fastapi import FastAPI
-from database import Base, engine
-import models  
-from api.router import router as car_router
+from app.db.database import Base, engine
+import app.db.models 
+from app.api.router import router as car_router
+from contextlib import asynccontextmanager
 
 Base.metadata.create_all(bind=engine)
 
-app = FastAPI()
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    Base.metadata.create_all(bind=engine)
+    yield
+
+app = FastAPI(lifespan=lifespan)
+
 
 @app.get("/")
 def home():

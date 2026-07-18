@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 
-from models import Car
-from schemas.car import CarCreate
+from .models import Car
+from app.schemas.car import CarCreate
 
 
 def create_car(db: Session, car: CarCreate):
