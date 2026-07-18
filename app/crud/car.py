@@ -18,3 +18,11 @@ def get_cars(db: Session):
 
 def get_car(db: Session, car_id: int):
     return db.query(Car).filter(Car.id == car_id).first()
+
+def remove_car(db:Session, car_id: int):
+    to_delete = db.query(Car).filter(Car.id == car_id).first()
+    if not to_delete:
+        return None
+    db.delete(to_delete)
+    db.commit()
+    return True
