@@ -23,3 +23,12 @@ mypy
 # Pre-commit Hooks
 # -----------------------------
 pre-commit
+
+
+# -----------------------------
+# DB Libs
+# -----------------------------
+sqlalchemy 
+asyncpg 
+alembic
+psycopg
