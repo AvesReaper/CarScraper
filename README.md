@@ -1,4 +1,4 @@
-# Car Price Tracker
+# CarScraper - A Car Price Tracker
 
 A data engineering project that continuously collects used car listings, processes them through a streaming pipeline, and stores them in a PostgreSQL database for analytics and price tracking.
 
