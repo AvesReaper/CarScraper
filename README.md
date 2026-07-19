@@ -22,7 +22,8 @@ DEV NOTES:
         CRUD endpoints for cars
         Input validation with Pydantic
         Proper project organization
-    
+- Phase3:
+    - created dockerfile and compose file for containerizing api and postgres services
 
 
 
@@ -52,4 +53,6 @@ PHASE 3:
     docker --version
     docker compose --version
     docker run hello-world
+PHASE 4:
+- installing playwright
     
