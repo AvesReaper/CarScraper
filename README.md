@@ -27,6 +27,13 @@ Once sufficient historical data has been collected, SQL queries can be used to g
 
 ---
 
+# Demo
+
+Watch the full demo:
+[Demo Video](https://github.com/AvesReaper/CarScraper/releases/download/v1.0/CarScraper_Demo.mp4)
+
+---
+
 # Architecture
 
 <p align="center">
