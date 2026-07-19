@@ -33,32 +33,18 @@ Once sufficient historical data has been collected, SQL queries can be used to g
     <img src="docs/CarScraper.jpg" width="900">
 </p>
 
-## Data Flow
+---
 
-```
-CarDekho
-    │
-    ▼
- Web Scraper
-    │
-    ▼
-Kafka Producer
-    │
-    ▼
- Kafka Topic
-    │
-    ▼
-Kafka Consumer
-    │
-    ▼
-    ETL
-    │
-    ▼
- FastAPI
-    │
-    ▼
-PostgreSQL
-```
+# Tech Stack
+
+- Python
+- FastAPI
+- SQLAlchemy
+- PostgreSQL
+- Kafka
+- Docker
+- Playwright
+- Pydantic
 
 ---
 
@@ -98,7 +84,6 @@ Completed
 
 - PostgreSQL installation
 - SQLAlchemy integration
-- Environment configuration using `.env`
 - Database connection
 - Car ORM model
 - Automatic table creation
@@ -145,9 +130,28 @@ Completed
 
 # Roadmap
 
+## Current Status
+
+The end-to-end ingestion pipeline is complete.
+
+```
+Scraper
+    ↓
+Kafka Producer
+    ↓
+Kafka Topic
+    ↓
+Kafka Consumer
+    ↓
+ETL
+    ↓
+FastAPI
+    ↓
+PostgreSQL
+```
+
 ## In Progress
 
-- Support more brands
 - Improve scraper resiliency
 - Better duplicate detection
 
@@ -164,51 +168,8 @@ Completed
 
 ---
 
-# Tech Stack
-
-- Python
-- FastAPI
-- SQLAlchemy
-- PostgreSQL
-- Kafka
-- Docker
-- Playwright
-- Pydantic
-
----
-
-# Repository Structure
-
-```
-.
-├── app/
-│   ├── api/
-│   ├── db/
-│   ├── models/
-│   ├── schemas/
-│   ├── services/
-│   └── main.py
-│
-├── scraper/
-│
-├── producer/
-│
-├── consumer/
-│
-├── docker/
-│
-├── docs/
-│   └── architecture.png
-│
-├── requirements.txt
-├── docker-compose.yml
-└── README.md
-```
-
----
-
 # Getting Started
-
+## Setting up for Local Dev
 ## 1. Create a virtual environment
 
 ```bash
@@ -300,25 +261,5 @@ pip freeze > requirements-lock.txt
 - Grafana dashboards
 
 ---
-
-# Current Status
-
-The end-to-end ingestion pipeline is complete.
-
-```
-Scraper
-    ↓
-Kafka Producer
-    ↓
-Kafka Topic
-    ↓
-Kafka Consumer
-    ↓
-ETL
-    ↓
-FastAPI
-    ↓
-PostgreSQL
-```
 
 The next milestone is building the analytics layer that periodically runs SQL queries on historical data and sends email notifications whenever a listing satisfies predefined conditions such as price drops or newly matching vehicles.
