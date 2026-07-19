@@ -1,27 +1,7 @@
 from playwright.sync_api import sync_playwright
 import time
 import json
-
-# def get_detail(page, label):
-#     return page.locator(
-#         f"li:has(.label:text-is('{label}')) .value-text"
-#     ).inner_text()
-
-
-def get_detail(page, label):
-    try:
-        item = page.locator(
-            "li",
-            has=page.locator(".label", has_text=label)
-        )
-
-        if item.count() == 0:
-            return None
-
-        return item.locator(".value-text").inner_text().strip()
-    except Exception:
-        return None
-
+from app.kafka.producer import publish
 
 def get_text(locator):
     try:
@@ -30,6 +10,7 @@ def get_text(locator):
         return locator.inner_text().strip()
     except Exception:
         return None
+
 
 def get_specs(page):
     specs = {}
@@ -84,7 +65,7 @@ with sync_playwright() as p:
     ])
 
     page = context.new_page()
-    page.goto("https://www.cardekho.com/used-mercedes-benz+cars+in+chennai")
+    page.goto("https://www.cardekho.com/used-bmw+cars+in+chennai")
 
 
     print(page.title())
@@ -118,7 +99,7 @@ with sync_playwright() as p:
         car_page.goto(url, wait_until="domcontentloaded")
         specs = get_specs(car_page)
 
-        print(specs)
+        # print(specs)
 
         pay = {
             "brand": "BMW",
@@ -137,6 +118,7 @@ with sync_playwright() as p:
         }
 
         # print(pay)
+        publish(pay)
         temp.append(json.dumps(pay))
         car_page.close()
 
@@ -144,7 +126,26 @@ with sync_playwright() as p:
 
     page.close()
 
+# ==========================OLD attempts
+# def get_detail(page, label):
+#     return page.locator(
+#         f"li:has(.label:text-is('{label}')) .value-text"
+#     ).inner_text()
 
+
+# def get_detail(page, label):
+#     try:
+#         item = page.locator(
+#             "li",
+#             has=page.locator(".label", has_text=label)
+#         )
+
+#         if item.count() == 0:
+#             return None
+
+#         return item.locator(".value-text").inner_text().strip()
+#     except Exception:
+#         return None
 
 
 # {"brand": "BMW", 

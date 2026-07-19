@@ -21,16 +21,3 @@ def sendtodb(payload):
         print(f"Request failed: {e}")
     
     return response.status_code
-
-
-test_pay = {
-  "brand": "BMW",
-  "model": "720ld",
-  "year": 2007,
-  "price": 100000,
-  "fuel_type": "diesel",
-  "transmission": "AWD",
-  "kilometers": 200000
-}
-
-print(sendtodb(test_pay))
