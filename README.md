@@ -30,7 +30,7 @@ Once sufficient historical data has been collected, SQL queries can be used to g
 # Architecture
 
 <p align="center">
-    <img src="docs/architecture.png" width="900">
+    <img src="docs/CarScraper.jpg" width="900">
 </p>
 
 ## Data Flow
